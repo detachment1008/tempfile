@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <utility>
 
 template <typename T>
 class vector
@@ -61,4 +62,38 @@ public:
     size_t find_last_not_of(const char &c, size_t pos, size_t n);
     size_t find_last_not_of(const string &str, size_t pos = 0);
     size_t find_last_not_of(const string &str, size_t pos, size_t n);
+};
+
+template <typename T, typename U>
+class unordered_map
+{
+    using Iterator = T *;
+    /*
+       修改元素相关
+    */
+
+    // 删除元素
+    void clear(); // 清除所有元素
+};
+
+template <typename T>
+class unordered_set
+{
+public:
+    using Iterator = T *;
+    /*
+       修改元素相关
+    */
+
+    // 删除元素
+    void clear(); // 清除所有元素
+    // 插入元素
+    std::pair<Iterator, bool> insert(const T &value); // 第一个迭代器指向对应元素，bool 反应是否插入成功
+    void insert(std::initializer_list<T> ilist);      // 初始化列表插入，没有返回值
+
+    /*
+       查找元素相关
+    */
+
+    size_t count(const T &key); // 返回改元素的个数
 };
